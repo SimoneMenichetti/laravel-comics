@@ -1,19 +1,41 @@
-
-
 <header>
-    <div class="logo">
+    <nav class="navbar">
+        {{-- Logo --}}
+        <div class="logo">
+            <a href="{{ url('/') }}" class="brand">
+                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="logo png">
+            </a>
+        </div>
 
-        {{-- questa immagine, essendo dentro public, la raggiungo con percorso assoluto partendo da public e non con Vite::asset() --}}
-      <img src="/img/logo-molisana.png" alt="Logo Molisana">
-    </div>
-    <nav class="main-menu">
-      <ul>
-        {{-- controllo che il nome della rotta corrente sia == al link. se sì stampo la classe active --}}
-        {{-- per leggere in nome della rotta corrente use Route::currentRouteName()  --}}
-        @foreach ($main_menu as $item )
-            <li><a class="{{ Route::currentRouteName() === $item['name'] ? 'active' : '' }}" href="{{ route($item['name']) }}">{{ $item['text'] }}</a></li>
+        {{-- Navigation Links --}}
+        <ul class="nav-links">
+            @php
+                $navLinksData = [
+                    ['href' => '#', 'text' => 'CHARACTERS'],
+                    ['href' => '#', 'text' => 'COMICS'],
+                    ['href' => '#', 'text' => 'MOVIES'],
+                    ['href' => '#', 'text' => 'TV'],
+                    ['href' => '#', 'text' => 'GAMES'],
+                    ['href' => '#', 'text' => 'COLLECTIBLES'],
+                    ['href' => '#', 'text' => 'VIDEOS'],
+                    ['href' => '#', 'text' => 'FANS'],
+                    ['href' => '#', 'text' => 'NEWS'],
+                    ['href' => '#', 'text' => 'SHOP'],
+                ];
 
-        @endforeach
-      </ul>
+                // Il link attivo
+                $activeLink = 'COMICS';
+            @endphp
+
+            @foreach ($navLinksData as $link)
+                <li>
+                    <a href="{{ $link['href'] }}" class="{{ $link['text'] === $activeLink ? 'active' : '' }}">
+                        {{ $link['text'] }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
     </nav>
-  </header>
+    {{-- Jumbotron --}}
+    <div class="jumboHeroes"></div>
+</header>

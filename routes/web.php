@@ -26,3 +26,10 @@ Route::get('/chi-siamo', function () {
 Route::get('/contatti', function () {
     return view('contacts');
 })->name('contacts');
+
+Route::get('/prodotti', function () {
+
+    // con config io accedo glopalmente a tutti i contenuti dei file presenti nella cartella config richimando il nome del file
+    $products = config('products');
+    return view('products', compact('products'));
+})->name('products');

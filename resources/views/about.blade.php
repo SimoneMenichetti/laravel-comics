@@ -1,13 +1,22 @@
 {{-- questa view estende il file main.blade.php che è dentro la cartella view/layouts --}}
 @extends('layouts.main')
 
+
 @section('content')
-<div class="container my-5">
-    <h1>Il nostro fantastico team</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo modi, iusto dolore eaque laudantium optio, adipisci perspiciatis voluptate obcaecati sit perferendis natus velit ut! Tempora voluptatum ipsam modi rem voluptas.
-    </p>
-</div>
+
+<main>
+    <h1>CHI SIAMO</h1>
+
+    <div class="cards-wrapper container">
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fugiat corporis nam repellat sit eos explicabo, laborum, ex atque, ab reiciendis asperiores molestias aliquid quidem recusandae totam? Minima, quaerat commodi.
+        </p>
+
+    </div>
+
+
+  </main>
 
 @endsection
 

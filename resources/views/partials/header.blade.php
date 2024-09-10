@@ -3,7 +3,7 @@
         {{-- Logo --}}
         <div class="logo">
             <a href="{{ url('/') }}" class="brand">
-                <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="logo png">
+                <img src="{{ Vite::asset('public/img/dc-logo.png') }}" alt="logo png">
             </a>
         </div>
 

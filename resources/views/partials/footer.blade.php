@@ -1,42 +1,59 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <!-- Colonna DC COMICS -->
+            <div class="footer-column dc-comics-shop">
+                <div class="footer-section">
+                    <h3>{{ $footerSections[0]['title'] }}</h3>
+                    <ul>
+                        @foreach ($footerSections[0]['items'] as $item)
+                            <li><a href="{{ $item['url'] }}">{{ $item['label'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+                <!-- Sezione SHOP -->
+                <div class="footer-section">
+                    <h3>{{ $footerSections[1]['title'] }}</h3>
+                    <ul>
+                        @foreach ($footerSections[1]['items'] as $item)
+                            <li><a href="{{ $item['url'] }}">{{ $item['label'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
 
-<footer >
-    <div class="top container">
+            <!-- Altre colonne -->
+            @php
+                // Usa array_slice per ottenere le sezioni rimanenti
+                $otherSections = array_slice($footerSections, 2);
+            @endphp
 
-      <div class="logo">
-        <img src="/img/logo-molisana.png" alt="Logo Molisana">
-      </div>
-
-      <nav>
-        <h4>menu</h4>
-        <ul>
-            @foreach ($main_menu as $item )
-                <li><a href="{{ route($item['name']) }}">{{ $item['text'] }}</a></li>
+            @foreach ($otherSections as $section)
+                <div class="footer-column">
+                    <h3>{{ $section['title'] }}</h3>
+                    <ul>
+                        @foreach ($section['items'] as $item)
+                            <li><a href="{{ $item['url'] }}">{{ $item['label'] }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
             @endforeach
-        </ul>
-      </nav>
+        </div>
 
-      <nav>
-        <h4>pastificio</h4>
-        <ul>
-            @foreach ($menu_pastificio as $item )
-                <li><a href="#">{{ $item['text'] }}</a></li>
-            @endforeach
-        </ul>
-        </ul>
-      </nav>
-
-      <nav>
-        <h4>prodotti</h4>
-        <ul>
-            @foreach ($menu_prodotti as $item )
-                <li><a href="#">{{ $item['text'] }}</a></li>
-            @endforeach
-        </ul>
-      </nav>
-
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+            <div class="footer-middle">
+                <button class="signup-button">SIGN-UP NOW!</button>
+            </div>
+            <div class="social-icons">
+                <div class="followus">
+                    <p>FOLLOW US</p>
+                </div>
+                @foreach ($socialIcons as $icon)
+                    <a href="{{ $icon['url'] }}"><img src="{{ asset('./img/' . $icon['image']) }}"
+                            alt="{{ $icon['alt'] }}"></a>
+                @endforeach
+            </div>
+        </div>
     </div>
-    <div class="bottom">
-        {{-- in questo caso, l'immagine essendo in resouces/img la carico utilizzando Vite::asset() --}}
-      <img src="{{ Vite::asset('resources/img/footer.jpg') }}" alt="Montagne">
-    </div>
-  </footer>
+</footer>

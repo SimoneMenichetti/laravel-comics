@@ -1,10 +1,3 @@
-@php
-    $main_menu = config('menues.main_menu');
-    $menu_pastificio = config('menues.pastificio');
-    $menu_prodotti = config('menues.prodotti');
-@endphp
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,13 +13,11 @@
 </head>
 
 <body>
-
     @include('partials.header')
 
     @yield('content')
 
     @include('partials.footer')
-
 </body>
 
 </html>

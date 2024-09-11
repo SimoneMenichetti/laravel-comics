@@ -1,26 +1,26 @@
 {{-- questa view estende il file main.blade.php che è dentro la cartella view/layouts --}}
 @extends('layouts.main')
 
-
 @section('content')
-
-<main>
-    <h1>HOME</h1>
-
-    <div class="cards-wrapper container">
-
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde fugiat corporis nam repellat sit eos explicabo, laborum, ex atque, ab reiciendis asperiores molestias aliquid quidem recusandae totam? Minima, quaerat commodi.
-        </p>
-
-    </div>
-
-
-  </main>
-
+    <main>
+        <div class="buttoncurrent">
+            <button class="currentseries-button"><b>CURRENT SERIES</b></button>
+        </div>
+        <div class="container">
+            @foreach ($cards as $card)
+                <section>
+                    <div class="card">
+                        <img src="{{ $card['thumb'] }}" alt="{{ $card['series'] }}">
+                        <h3>{{ $card['series'] }}</h3>
+                    </div>
+                </section>
+            @endforeach
+        </div>
+        <div class="box buttonload">
+            <button class="loadmore-button">LOAD MORE</button>
+        </div>
+    </main>
 @endsection
-
-
 @section('titlePage')
-    home
+    Home
 @endsection

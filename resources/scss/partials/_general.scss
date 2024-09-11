@@ -23,3 +23,51 @@ a {
     padding: 0 1rem;
 
 }
+
+// Importa variabili e stili generali
+
+
+// Stili per la sezione main
+main {
+    background-color: #1C1C1C;
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto; // Cambiato da 450px per adattarsi al contenuto
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    .loadmore-button, .currentseries-button {
+        background-color: #0282F9;
+        color: white;
+        padding: 10px 50px;
+        margin-bottom: 2rem;
+        border: solid 1px #0282F9;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0c5a99;
+    }
+
+    .buttoncurrent .currentseries-button {
+        position: absolute;
+        margin-top: -20px;
+        margin-left: 130px;
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: bolder;
+    }
+}
+
+
+

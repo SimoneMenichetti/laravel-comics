@@ -2,7 +2,7 @@
     <nav class="navbar">
         {{-- Logo --}}
         <div class="logo">
-            <a href="{{ url('/') }}" class="brand">
+            <a href="{{ route('home') }}" class="brand">
                 <img src="{{ Vite::asset('public/img/dc-logo.png') }}" alt="logo png">
             </a>
         </div>
@@ -11,25 +11,19 @@
         <ul class="nav-links">
             @php
                 $navLinksData = [
-                    ['href' => '#', 'text' => 'CHARACTERS'],
-                    ['href' => '#', 'text' => 'COMICS'],
-                    ['href' => '#', 'text' => 'MOVIES'],
-                    ['href' => '#', 'text' => 'TV'],
-                    ['href' => '#', 'text' => 'GAMES'],
-                    ['href' => '#', 'text' => 'COLLECTIBLES'],
-                    ['href' => '#', 'text' => 'VIDEOS'],
-                    ['href' => '#', 'text' => 'FANS'],
-                    ['href' => '#', 'text' => 'NEWS'],
-                    ['href' => '#', 'text' => 'SHOP'],
+                    ['route' => 'home', 'text' => 'HOME'],
+                    ['route' => 'about', 'text' => 'CHI SIAMO'],
+                    ['route' => 'contacts', 'text' => 'CONTATTI'],
+                    ['route' => 'products', 'text' => 'PRODOTTI'],
                 ];
 
                 // Il link attivo
-                $activeLink = 'COMICS';
+                $activeLink = Route::currentRouteName();
             @endphp
 
             @foreach ($navLinksData as $link)
                 <li>
-                    <a href="{{ $link['href'] }}" class="{{ $link['text'] === $activeLink ? 'active' : '' }}">
+                    <a href="{{ route($link['route']) }}" class="{{ $link['route'] === $activeLink ? 'active' : '' }}">
                         {{ $link['text'] }}
                     </a>
                 </li>
